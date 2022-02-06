@@ -31,14 +31,17 @@ alias cp='cp -v'
 alias mv='mv -iv'
 alias cat='bat'
 alias ls='lsd'
-alias l='ls -F'
-alias ll='ls -l'
-alias lla='ls -la'
+alias l='ls -l'
+alias ll='ls -la'
 alias la='ls -A'
 alias bat='bat --theme=ansi'
 less() {
     bat $1 -r $(wc -l $1 | awk -F ' ' '{print $1-10":"$1}')
 }
+
+# Trying to use homebrew's git instead of apple builtin
+export PATH="/usr/local/bin:${PATH}"
+export PATH="/usr/local/sbin:${PATH}"
 
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
@@ -73,9 +76,6 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-# Trying to use homebrew's git instead of apple builtin
-export PATH="/usr/local/bin:${PATH}"
-export PATH="/usr/local/sbin:${PATH}"
 
 timezsh() {
     shell=${1-$SHELL}
