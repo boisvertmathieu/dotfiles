@@ -1,5 +1,3 @@
-
-"
 set nocompatible
 
 " Helps force plugins to load correctly when it is turned back on below
@@ -11,20 +9,22 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 " Code completion
 Plugin 'ycm-core/YouCompleteMe'
+" Airline
+" Plugin 'vim-airline/vim-airline'
 " Lightline
 Plugin 'itchyny/lightline.vim'
 " Syntax highlighting
-Plugin 'sheerun/vim-polyglot'
+" Plugin 'sheerun/vim-polyglot'
 " Nerd tree file explorer
-Plugin 'preservim/nerdtree'
+ Plugin 'preservim/nerdtree'
 " Icons for Nerd Tree
-Plugin 'ryanoasis/vim-devicons'
+ Plugin 'ryanoasis/vim-devicons'
 " Syntax highlighting for Nerd Tree
-Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
+ Plugin 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Nerd commenter, enhance commenting
-Plugin 'preservim/nerdcommenter'
+ Plugin 'preservim/nerdcommenter'
 " Git gutter
-Plugin 'airblade/vim-gitgutter'
+" Plugin 'airblade/vim-gitgutter'
 " Auto pairs
 Plugin 'jiangmiao/auto-pairs'
 " Yank highlight
@@ -38,18 +38,20 @@ Plugin 'dracula/vim'
 Plugin 'drewtempelmeyer/palenight.vim'
 Plugin 'chriskempson/base16-vim'
 Plugin 'sainnhe/gruvbox-material'
-Plugin 'nanotech/jellybeans.vim'
-" Fuzzy finder
-Plugin 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plugin 'junegunn/fzf.vim'
 " Code formatter
 Plugin 'google/vim-maktaba'
 Plugin 'google/vim-codefmt'
 Plugin 'google/vim-glaive'
 call vundle#end()
 
+" For plugins to load correctly
+filetype plugin indent on
+
 " YCM Configs
 let g:ycm_clangd_binary_path = "/usr/bin/clangd"
+
+" Fuzzy finder config
+set rtp+=/usr/local/opt/fzf
 
 " codefmt configs
 augroup autoformat_settings
@@ -66,8 +68,6 @@ augroup autoformat_settings
 augroup END
 
 
-" For plugins to load correctly
-filetype plugin indent on
 
 " Remapping the leader key
 let mapleader = ","
@@ -91,12 +91,11 @@ set t_vb=
 set encoding=utf-8
 
 " Whitespace
-set wrap
-set textwidth=79
-set formatoptions=tcqrn1
+set autoindent
+set smartindent
+"set textwidth=120
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4
 set expandtab
 set noshiftround
 
@@ -167,12 +166,14 @@ nnoremap <silent> <Leader>f :Rg<Cr>
 let g:SimpylFold_docstring_preview=1
 
 " Colorschemes
+set background=dark
+colorscheme default
 syntax on
-colorscheme jellybeans
+highlight Normal ctermbg=None
+highlight LineNr ctermfg=DarkGrey
+let g:gruvbox_bold = 0
 let g:gruvbox_contrast_dark = 'hard'
 set t_Co=256
-set termguicolors
-set background=dark
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
 
@@ -181,6 +182,7 @@ set wildmenu
 
 " NERDTree shortcut
 nnoremap <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>N :NERDTreeFocus<CR>
 nnoremap <C-n> :NERDTree<CR>
 " NERDTree show hidden files
 let NERDTreeShowHidden=1
@@ -198,7 +200,4 @@ let g:highlightedyank_highlight_duration=200
 
 " Python specific configs
 let g:python_highlight_space_errors = 0
-
-" For local replace
-nnoremap gr gd[{V%::s/<C-R>///gc<left><left><left>}]
 
