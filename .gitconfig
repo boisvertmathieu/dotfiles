@@ -1,13 +1,13 @@
 [user]
-	name = Mathieu Boisvert
-	email = boisvert.my@gmail.com
+	name = 
+	email = 
 [pull]
 	rebase = false
 [init]
 	defaultBranch = main
 [core]
 	autocrlf = input
-	excludesfile = /Users/boisv/.gitignore_global
+	excludesfile = 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
