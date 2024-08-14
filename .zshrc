@@ -164,8 +164,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export SENTIMENT_INVESTOR='7F72661-YHF4RYP-HPAPYZS-0RSZENA'
-
 export GEM_HOME="$HOME/.gem"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
